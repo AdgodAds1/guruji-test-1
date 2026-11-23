@@ -1,309 +1,675 @@
-
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#04061a">
+<meta name="theme-color" content="#080817">
+<meta name="description" content="Guruji Mtk — Entertainment and Educational Platform.">
 
-<title>GURUJI MTK – Online Mtk App</title>
-
-<meta name="description" content="GURUJI MTK Online Platform">
+<title>Vikky Education | Official App</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- META PIXEL CODE -->
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
-{
-  if(f.fbq)return;
-  n=f.fbq=function(){
-    n.callMethod ?
-    n.callMethod.apply(n,arguments) : n.queue.push(arguments)
-  };
-  if(!f._fbq)f._fbq=n;
-  n.push=n;
-  n.loaded=true;
-  n.version='2.0';
-  n.queue=[];
-  t=b.createElement(e);
-  t.async=true;
-  t.src=v;
-  s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s);
-}(window,document,'script',
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init','2064042457635063');
-fbq('track','PageView');
+fbq('init', '2064042457635063');
+fbq('track', 'PageView');
 </script>
-
-<noscript>
-<img height="1" width="1" style="display:none"
+<noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2064042457635063&ev=PageView&noscript=1"
-/>
-</noscript>
-<!-- END META PIXEL CODE -->
-
+/></noscript>
+<!-- End Meta Pixel Code -->
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+:root {
+  --bg: #070817;
+  --cyan: #43f5ff;
+  --purple: #a56bff;
+  --pink: #ff54d9;
+  --green: #72ffd2;
+  --text: #f5f7ff;
+  --muted: #abb5d5;
 }
 
-body{
-  min-height:100vh;
-  background:#04061a;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-  color:#fff;
-  overflow-x:hidden;
-  overflow-y:auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#starCanvas{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100%;
-  z-index:0;
-  pointer-events:none;
+html {
+  scroll-behavior: smooth;
 }
 
-.card{
-  position:relative;
-  z-index:2;
-  width:100%;
-  max-width:420px;
-  background:linear-gradient(180deg,#18245d,#090e32);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:26px;
-  padding:26px 22px 30px;
-  box-shadow:0 25px 60px rgba(0,0,0,.6);
-  backdrop-filter:blur(10px);
-  animation:cardEntry .8s ease;
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 10% 15%, #242052 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 85%, #102f4b 0%, transparent 40%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
 }
 
-@keyframes cardEntry{
-  from{
-    opacity:0;
-    transform:translateY(30px) scale(.95);
+/* COLORFUL LIGHTS AROUND THE PAGE */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .48;
+  pointer-events: none;
+  z-index: 0;
+  animation: rainbowLight 8s ease-in-out infinite alternate;
+}
+
+body::before {
+  top: -110px;
+  left: -100px;
+  background: #ff36d1;
+}
+
+body::after {
+  right: -110px;
+  bottom: -100px;
+  background: #00eaff;
+  animation-delay: -4s;
+}
+
+@keyframes rainbowLight {
+  0% {
+    transform: translate(0,0) scale(.85);
+    filter: blur(80px) hue-rotate(0deg);
   }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
+  50% {
+    transform: translate(35px,30px) scale(1.18);
+    filter: blur(100px) hue-rotate(120deg);
+  }
+  100% {
+    transform: translate(-15px,-20px) scale(1);
+    filter: blur(85px) hue-rotate(240deg);
   }
 }
 
-.header{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  margin-bottom:14px;
+#starCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.logo{
-  width:60px;
-  height:60px;
-  flex-shrink:0;
-  border-radius:16px;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 30px rgba(255,215,0,.7);
-  animation:logoGlow 2s infinite alternate;
+.ambient {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: .24;
+  z-index: 0;
+  pointer-events: none;
+  animation: ambientMove 9s ease-in-out infinite alternate;
 }
 
-.logo img{
-  width:48px;
-  height:48px;
-  object-fit:contain;
+.ambient.one {
+  top: 30%;
+  right: -100px;
+  background: #a044ff;
 }
 
-@keyframes logoGlow{
-  from{box-shadow:0 0 10px #ffd700;}
-  to{box-shadow:0 0 30px #00d4ff;}
+.ambient.two {
+  bottom: 20%;
+  left: -100px;
+  background: #00ffcc;
+  animation-delay: -4s;
 }
 
-.header h1{
-  font-size:22px;
-  font-weight:800;
-  letter-spacing:1px;
-  background:linear-gradient(90deg,#fff,#ffd84d);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+@keyframes ambientMove {
+  from { transform: translate(0,0) scale(.85); }
+  to { transform: translate(30px,-25px) scale(1.2); }
 }
 
-.header span{
-  display:block;
-  font-size:10px;
-  font-weight:600;
-  color:#ffd84d;
-  line-height:1.5;
+/* MAIN CARD */
+
+.card {
+  position: relative;
+  isolation: isolate;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  padding: 25px 22px 20px;
+  border: 1px solid rgba(155,177,255,.25);
+  border-radius: 28px;
+  background: linear-gradient(
+    145deg,
+    rgba(24,30,70,.95),
+    rgba(9,13,37,.96) 65%,
+    rgba(28,18,59,.94)
+  );
+  box-shadow:
+    0 30px 85px rgba(0,0,0,.48),
+    inset 0 1px rgba(255,255,255,.12),
+    0 0 45px rgba(128,90,255,.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: cardEnter .8s cubic-bezier(.2,.8,.2,1) both;
 }
 
-.tagline{
-  font-size:14px;
-  font-weight:600;
-  text-align:center;
-  margin:18px 0;
-  color:#fff;
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    var(--cyan),
+    transparent 30%,
+    var(--purple),
+    transparent 75%,
+    var(--pink)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.features{
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:18px;
-  padding:18px;
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(24px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.features li{
-  list-style:none;
-  margin-bottom:11px;
-  font-size:13px;
-  display:flex;
-  gap:9px;
-  align-items:center;
+/* BRAND AND ANIMATED LOGO */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-.features li:last-child{
-  margin-bottom:0;
+.logo {
+  position: relative;
+  flex: 0 0 62px;
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border-radius: 19px;
+  background: linear-gradient(145deg,#fff,#dce7ff);
+  box-shadow:
+    0 8px 22px rgba(0,0,0,.3),
+    0 0 28px rgba(67,245,255,.3);
+  animation: logoFloat 4s ease-in-out infinite;
 }
 
-.features li::before{
-  content:"✔";
-  color:#00ff9d;
-  font-weight:800;
+.logo::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid rgba(67,245,255,.6);
+  border-radius: 23px;
+  animation: logoRing 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
-.stats{
-  display:flex;
-  gap:9px;
-  margin:20px 0;
+.logo img {
+  width: 49px;
+  height: 49px;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
-.stat{
-  flex:1;
-  min-width:0;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:16px;
-  padding:13px 5px;
-  text-align:center;
+@keyframes logoFloat {
+  0%,100% { transform: perspective(500px) rotateY(-7deg) translateY(0); }
+  50% { transform: perspective(500px) rotateY(7deg) translateY(-4px); }
 }
 
-.stat h2{
-  font-size:17px;
-  font-weight:800;
-  color:#ffd84d;
+@keyframes logoRing {
+  0%,100% { opacity: .35; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.07); }
 }
 
-.stat p{
-  font-size:10px;
-  opacity:.85;
+.brand {
+  min-width: 0;
 }
 
-.download a{
-  display:block;
-  text-align:center;
-  padding:17px 10px;
-  background:linear-gradient(90deg,#00ff9d,#00d4ff);
-  color:#002018;
-  font-size:17px;
-  font-weight:800;
-  border-radius:40px;
-  text-decoration:none;
-  box-shadow:0 0 30px rgba(0,255,200,.5);
-  transition:.3s;
-  animation:downloadPulse 2s infinite;
+.brand h1 {
+  font-size: clamp(20px,5vw,23px);
+  font-weight: 800;
+  letter-spacing: -.8px;
+  line-height: 1.25;
+  background: linear-gradient(100deg,#fff 15%,#8ffaff 60%,#d0a5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.download a:hover{
-  transform:scale(1.04);
+.brand span {
+  display: block;
+  margin-top: 5px;
+  color: var(--cyan);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 1.6;
 }
 
-.download a:active{
-  transform:scale(.97);
+/* LABEL */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 22px;
+  padding: 7px 11px;
+  border: 1px solid rgba(114,255,210,.24);
+  border-radius: 30px;
+  background: rgba(114,255,210,.06);
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .45px;
 }
 
-@keyframes downloadPulse{
-  0%,100%{box-shadow:0 0 15px rgba(0,255,200,.4);}
-  50%{box-shadow:0 0 35px rgba(0,255,200,.9);}
+.live-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+  animation: pulseDot 1.5s infinite;
 }
 
-.footer{
-  text-align:center;
-  font-size:12px;
-  opacity:.8;
-  margin-top:18px;
-  cursor:pointer;
-  text-decoration:underline;
+@keyframes pulseDot {
+  50% { opacity: .4; box-shadow: 0 0 2px var(--green); }
 }
 
-.ads-agency{
-  text-align:center;
-  margin-top:8px;
-  font-size:11px;
-  color:rgba(255,255,255,.65);
+.tagline {
+  margin: 15px 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: #f0f2ff;
 }
 
-/* PRIVACY POPUP */
-
-#policy{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.8);
-  z-index:10;
-  justify-content:center;
-  align-items:center;
-  padding:18px;
+.tagline span {
+  color: var(--cyan);
 }
 
-.policy-box{
-  background:#0b113d;
-  border:1px solid rgba(255,255,255,.12);
-  width:100%;
-  max-width:420px;
-  padding:22px;
-  border-radius:18px;
-  font-size:13px;
-  line-height:1.7;
-  max-height:85vh;
-  overflow-y:auto;
+/* FEATURES */
+
+.features {
+  padding: 16px;
+  list-style: none;
+  border: 1px solid rgba(255,255,255,.075);
+  border-radius: 19px;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.018)
+  );
 }
 
-.policy-box h3{
-  color:#ffd84d;
-  margin-bottom:12px;
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 11px;
+  color: #dce3ff;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
-.policy-box button{
-  margin-top:15px;
-  padding:10px 22px;
-  border:none;
-  border-radius:10px;
-  background:#00ff9d;
-  color:#002018;
-  font-weight:700;
-  cursor:pointer;
+.features li:last-child {
+  margin-bottom: 0;
 }
 
-@media(max-width:380px){
-  .card{
-    padding:22px 16px;
+.check {
+  display: grid;
+  place-items: center;
+  flex: 0 0 23px;
+  width: 23px;
+  height: 23px;
+  border: 1px solid rgba(67,245,255,.2);
+  border-radius: 8px;
+  background: rgba(67,245,255,.08);
+  font-size: 14px;
+}
+
+/* STATS */
+
+.stats {
+  display: flex;
+  gap: 9px;
+  margin: 17px 0 19px;
+}
+
+.stat {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 5px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.075);
+  border-radius: 16px;
+  background: rgba(255,255,255,.035);
+  transition: transform .25s,border-color .25s;
+}
+
+.stat:hover {
+  transform: translateY(-3px);
+  border-color: rgba(67,245,255,.4);
+}
+
+.stat h2 {
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.stat p {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+/* ANIMATED DOWNLOAD BUTTON */
+
+.download-btn {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 57px;
+  padding: 15px 13px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 18px;
+  background: linear-gradient(105deg,#70ffd2,#43f5ff 55%,#b49aff);
+  color: #071426;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(67,245,255,.25);
+  animation: buttonPulse 2s ease-in-out infinite;
+  transition: filter .25s;
+}
+
+.download-btn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -80%;
+  left: -60%;
+  width: 35%;
+  height: 260%;
+  transform: rotate(25deg);
+  background: rgba(255,255,255,.65);
+  filter: blur(7px);
+  animation: buttonShine 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.download-btn::after {
+  content: "✦";
+  position: absolute;
+  top: 5px;
+  right: 13px;
+  color: rgba(255,255,255,.95);
+  font-size: 15px;
+  animation: sparkle 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes buttonPulse {
+  0%,100% {
+    box-shadow: 0 0 13px rgba(67,245,255,.28),
+                0 0 28px rgba(165,107,255,.1);
+    transform: translateY(0) scale(1);
   }
-  .header h1{
-    font-size:19px;
+  50% {
+    box-shadow: 0 0 27px rgba(67,245,255,.68),
+                0 0 44px rgba(165,107,255,.3);
+    transform: translateY(-2px) scale(1.012);
   }
-  .stat h2{
-    font-size:15px;
+}
+
+@keyframes buttonShine {
+  0%,20% { left: -60%; }
+  60%,100% { left: 140%; }
+}
+
+@keyframes sparkle {
+  0%,100% { opacity: .35; transform: scale(.8) rotate(0); }
+  50% { opacity: 1; transform: scale(1.3) rotate(90deg); }
+}
+
+.download-btn:hover {
+  filter: saturate(1.2) brightness(1.08);
+}
+
+.download-btn:active {
+  transform: scale(.985);
+}
+
+.download-btn[aria-disabled="true"] {
+  cursor: wait;
+  animation: none;
+  opacity: .8;
+}
+
+.download-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* DOWNLOAD PROGRESS */
+
+.download-progress {
+  display: none;
+  margin-top: 12px;
+}
+
+.download-progress.active {
+  display: block;
+  animation: cardEnter .25s ease both;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
+  font-size: 10px;
+  color: #e0e7ff;
+}
+
+.progress-track {
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255,255,255,.1);
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg,#43f5ff,#72ffd2,#a56bff,#ff54d9);
+  box-shadow: 0 0 13px rgba(67,245,255,.5);
+  transition: width .15s linear;
+}
+
+.progress-note {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+/* FOOTER AND TELEGRAM */
+
+.footer {
+  display: block;
+  margin: 16px auto 0;
+  padding: 4px;
+  border: 0;
+  background: none;
+  color: #c8d0ee;
+  text-align: center;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.footer:hover {
+  color: var(--cyan);
+}
+
+.ads-agency {
+  margin-top: 9px;
+  text-align: center;
+}
+
+.telegram-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 30px;
+  background: linear-gradient(110deg,#168ac1,#229ed9);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 13px rgba(34,158,217,.22);
+  transition: transform .2s,box-shadow .2s;
+}
+
+.telegram-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(34,158,217,.4);
+}
+
+/* PRIVACY MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(2,4,16,.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 420px;
+  max-height: 82vh;
+  max-height: 82svh;
+  overflow-y: auto;
+  padding: 23px;
+  border: 1px solid rgba(120,175,255,.3);
+  border-radius: 23px;
+  background: linear-gradient(150deg,#171e49,#0b102c);
+  box-shadow: 0 25px 80px rgba(0,0,0,.55);
+  animation: cardEnter .25s ease both;
+}
+
+.modal-box h2 {
+  margin-bottom: 13px;
+  font-size: 19px;
+}
+
+.modal-box h3 {
+  margin: 15px 0 5px;
+  color: var(--cyan);
+  font-size: 13px;
+}
+
+.modal-box p {
+  margin-bottom: 10px;
+  color: #d0d7f2;
+  font-size: 12px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.modal-close {
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(100deg,#70ffd2,#43f5ff);
+  color: #071426;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 380px) {
+  body { padding: 12px; }
+  .card { padding: 21px 16px 17px; border-radius: 23px; }
+  .brand h1 { font-size: 20px; }
+  .brand span { font-size: 8px; letter-spacing: .5px; }
+  .features { padding: 13px; }
+  .stat h2 { font-size: 15px; }
+  .download-btn { font-size: 12px; }
+}
+
+@media (max-height: 740px) {
+  body { align-items: flex-start; }
+  .card { margin: auto 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
   }
 }
 </style>
@@ -311,207 +677,482 @@ body{
 
 <body>
 
-<canvas id="starCanvas"></canvas>
+<canvas id="starCanvas" aria-hidden="true"></canvas>
+<div class="ambient one" aria-hidden="true"></div>
+<div class="ambient two" aria-hidden="true"></div>
 
-<div class="card">
+<main class="card">
 
-  <div class="header">
-
+  <header class="header">
     <div class="logo">
-      <img src="logo.jpeg" alt="GURUJI MTK Logo">
+      <img
+        src="logo.jpeg"
+        alt="GURUJI Mtk Logo"
+        width="49"
+        height="49">
     </div>
 
-    <div>
+    <div class="brand">
       <h1>GURUJI MTK</h1>
-      <span>ENTERTAINMENT & EDUCATIONAL PLATFORM</span>
+      <span>ENTERTAINMENT &amp; EDUCATIONAL PLATFORM</span>
     </div>
+  </header>
 
+  <div class="eyebrow">
+    <span class="live-dot" aria-hidden="true"></span>
+    YOUR DIGITAL EXPERIENCE STARTS HERE
   </div>
 
-  <div class="tagline">
-    तेज़ अपडेट • आसान सिस्टम • रियल-टाइम जानकारी
-  </div>
+  <p class="tagline">
+    Fast Access <span>•</span> Convenient Experience
+    <span>•</span> Timely Updates
+  </p>
 
   <ul class="features">
-    <li>24×7 System Access</li>
-    <li>Fast Result Information</li>
-    <li>User Friendly Interface</li>
-    <li>Minimum Deposit ₹50</li>
-    <li>Minimum Withdrawal ₹300</li>
+    <li><span class="check">⚡</span><span>24/7 Platform Access</span></li>
+    <li><span class="check">🎯</span><span>Fast Result Information</span></li>
+    <li><span class="check">✨</span><span>User-Friendly Interface</span></li>
+    <li><span class="check">🎮</span><span>Minimum Deposit 50</span></li>
+    <li><span class="check">📚</span><span>Minimum Withdrawal 300</span></li>
   </ul>
 
-  <div class="stats">
-
+  <section class="stats" aria-label="Platform information">
     <div class="stat">
       <h2>100K+</h2>
       <p>Active Users</p>
     </div>
-
     <div class="stat">
       <h2>24×7</h2>
       <p>Support</p>
     </div>
-
     <div class="stat">
       <h2>4.9★</h2>
       <p>User Rating</p>
     </div>
+  </section>
 
-  </div>
-
-  <!-- APK DOWNLOAD BUTTON -->
-
-  <div class="download">
-    <a href="https://guruji.space/guruji.apk"
-       onclick="return trackApkDownload(event,this)">
-      ↓ DOWNLOAD NOW ↓
+  <section class="download">
+    <a
+      class="download-btn"
+      id="downloadBtn"
+      href="https://guruji.space/guruji.apk  ">
+      <span class="download-icon" aria-hidden="true">⬇</span>
+      <span id="downloadLabel">DOWNLOAD APK NOW</span>
     </a>
-  </div>
 
-  <div class="footer" onclick="openPolicy()">
-    Privacy Policy & Terms
-  </div>
+    <div class="download-progress" id="downloadProgress"
+         role="status" aria-live="polite">
+      <div class="progress-meta">
+        <span id="progressStatus">Preparing download...</span>
+        <span id="progressPercent">0%</span>
+      </div>
 
-  <div class="ads-agency">
-    GURUJI MTK Official Platform
-  </div>
+      <div class="progress-track" id="progressTrack"
+           role="progressbar" aria-label="APK download progress"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
 
-</div>
+      <p class="progress-note" id="progressNote">
+        Connecting to the download server.
+      </p>
+    </div>
+  </section>
 
-<!-- PRIVACY POLICY POPUP -->
+  <button class="footer" id="policyOpen" type="button">
+    Privacy Policy &amp; Terms
+  </button>
 
-<div id="policy" onclick="closePolicy()">
+</main>
 
-  <div class="policy-box" onclick="event.stopPropagation()">
+<!-- PRIVACY POLICY AND TERMS ONLY -->
+<div class="modal" id="policyModal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="policyTitle" aria-hidden="true">
 
-    <h3>🔐 Privacy Policy & Terms</h3>
+  <section class="modal-box">
+    <h2 id="policyTitle">Privacy Policy &amp; Terms</h2>
 
+    <h3>1. About This Platform</h3>
     <p>
-      GURUJI MTK provides online entertainment and informational content.
-      All content is provided for informational purposes only.
-      We do not guarantee any earnings or financial returns.
-      Users should review all applicable laws before using the platform.
-      We respect user privacy and do not ask users to share unnecessary
-      personal information.
+      GURUJI Mtk provides entertainment and educational information.
+      Content is provided for general informational purposes.
     </p>
 
-    <button onclick="closePolicy()">Close</button>
+    <h3>2. Privacy &amp; Analytics</h3>
+    <p>
+      This website uses Meta Pixel to measure page visits and interactions.
+      Analytics technologies may process technical information under the
+      applicable provider policies and privacy choices. Do not submit
+      sensitive personal information through this landing page.
+    </p>
 
-  </div>
+    <h3>3. Downloads &amp; Security</h3>
+    <p>
+      Download applications only from sources you trust. Review requested
+      permissions and verify the publisher before installing an APK.
+      Installation may require confirmation on your Android device.
+    </p>
 
+    <h3>4. No Guarantees</h3>
+    <p>
+      We do not guarantee uninterrupted availability, particular results,
+      earnings, financial returns or compatibility with every device.
+    </p>
+
+    <h3>5. Acceptable Use</h3>
+    <p>
+      You agree to use the platform lawfully and not interfere with its
+      operation or attempt unauthorized access.
+    </p>
+
+    <h3>6. Third-Party Services</h3>
+    <p>
+      External links, analytics and downloads may be governed by their
+      providers' own terms and privacy policies.
+    </p>
+
+    <h3>7. Updates &amp; Contact</h3>
+    <p>
+      These terms may be updated when necessary. Publish a valid support
+      email or business contact so users can submit privacy requests.
+    </p>
+
+    <button class="modal-close" id="policyClose" type="button">Close</button>
+  </section>
 </div>
 
 <script>
+(() => {
+  "use strict";
 
-/* PRIVACY POPUP */
+  const APK_URL = "https://guruji.space/guruji.apk  ";
 
-function openPolicy(){
-  document.getElementById("policy").style.display="flex";
-}
+  const button = document.getElementById("downloadBtn");
+  const label = document.getElementById("downloadLabel");
+  const panel = document.getElementById("downloadProgress");
+  const bar = document.getElementById("progressBar");
+  const percentText = document.getElementById("progressPercent");
+  const statusText = document.getElementById("progressStatus");
+  const noteText = document.getElementById("progressNote");
+  const progressTrack = document.getElementById("progressTrack");
 
-function closePolicy(){
-  document.getElementById("policy").style.display="none";
-}
+  const policyModal = document.getElementById("policyModal");
+  const policyOpen = document.getElementById("policyOpen");
+  const policyClose = document.getElementById("policyClose");
 
-/* META PIXEL APK DOWNLOAD TRACKING */
+  let busy = false;
+  let previousFocus = null;
 
-function trackApkDownload(event, link){
-
-  event.preventDefault();
-
-  const apkUrl = link.href;
-  let downloadStarted = false;
-
-  function startDownload(){
-    if(downloadStarted) return;
-
-    downloadStarted = true;
-    window.location.href = apkUrl;
+  function trackEvent(eventName, data = {}) {
+    if (typeof window.fbq === "function") {
+      try {
+        window.fbq("trackCustom", eventName, data);
+      } catch (_) {
+        // Analytics must never block a download.
+      }
+    }
   }
 
-  if(typeof window.fbq === 'function'){
+  function setProgress(value, status, note, unknown = false) {
+    const p = Math.max(0, Math.min(100, Math.round(value)));
 
-    fbq('track','Lead',{
-      content_name:'Guruji Mtk APK',
-      content_category:'APK Download'
+    bar.style.width = p + "%";
+    percentText.textContent = unknown ? "—" : p + "%";
+    statusText.textContent = status;
+    noteText.textContent = note;
+    progressTrack.setAttribute("aria-valuenow", String(p));
+  }
+
+  function showProgress() {
+    panel.classList.add("active");
+  }
+
+  function openPolicy() {
+    previousFocus = document.activeElement;
+    policyModal.classList.add("open");
+    policyModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    policyClose.focus();
+  }
+
+  function closePolicy() {
+    policyModal.classList.remove("open");
+    policyModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    if (previousFocus && typeof previousFocus.focus === "function") {
+      previousFocus.focus();
+    }
+  }
+
+  policyOpen.addEventListener("click", openPolicy);
+  policyClose.addEventListener("click", closePolicy);
+
+  policyModal.addEventListener("click", event => {
+    if (event.target === policyModal) closePolicy();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && policyModal.classList.contains("open")) {
+      closePolicy();
+    }
+  });
+
+  function setBusy(value) {
+    busy = value;
+    button.setAttribute("aria-disabled", String(value));
+    button.style.pointerEvents = value ? "none" : "";
+    label.textContent = value ? "DOWNLOADING APK..." : "DOWNLOAD APK NOW";
+  }
+
+  function directDownload(message) {
+    /*
+      Cross-origin restrictions may prevent live progress.
+      In fallback mode, let the browser download the original URL.
+    */
+    setBusy(false);
+    button.href = APK_URL;
+    button.target = "_blank";
+    button.rel = "noopener noreferrer";
+
+    setProgress(0, "Browser Download", message, true);
+    label.textContent = "DOWNLOAD APK NOW";
+
+    const link = document.createElement("a");
+    link.href = APK_URL;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.style.display = "none";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+
+  async function startDownload() {
+    if (busy) return;
+
+    setBusy(true);
+    button.removeAttribute("target");
+    button.removeAttribute("rel");
+
+    showProgress();
+    setProgress(0, "Connecting...", "Contacting the APK server.");
+
+    trackEvent("APKDownloadClick", {
+      content_name: "Guruji Mtk APK"
     });
 
-    // Give the Pixel request a short time before navigation
-    setTimeout(startDownload,800);
+    try {
+      const response = await fetch(APK_URL, {
+        method: "GET",
+        mode: "cors",
+        credentials: "omit",
+        cache: "no-store"
+      });
 
-  }else{
+      if (!response.ok) {
+        throw new Error("HTTP " + response.status);
+      }
 
-    // Download still works if Pixel is blocked
-    startDownload();
+      const contentType = (
+        response.headers.get("content-type") || ""
+      ).toLowerCase();
 
+      if (
+        contentType.includes("text/html") ||
+        contentType.includes("application/json")
+      ) {
+        throw new Error("The server did not return a downloadable APK.");
+      }
+
+      if (!response.body || !response.body.getReader) {
+        throw new Error("Streaming progress is unavailable.");
+      }
+
+      const reader = response.body.getReader();
+      const header = response.headers.get("content-length");
+      const total = header ? Number(header) : 0;
+
+      let received = 0;
+      const chunks = [];
+
+      while (true) {
+        const result = await reader.read();
+
+        if (result.done) break;
+
+        chunks.push(result.value);
+        received += result.value.byteLength;
+
+        if (total > 0) {
+          setProgress(
+            received / total * 100,
+            "Downloading APK...",
+            (received / 1048576).toFixed(2) + " MB of " +
+            (total / 1048576).toFixed(2) + " MB downloaded."
+          );
+        } else {
+          setProgress(
+            0,
+            "Downloading APK...",
+            (received / 1048576).toFixed(2) +
+            " MB downloaded. Waiting for the transfer to finish.",
+            true
+          );
+        }
+      }
+
+      if (!received) {
+        throw new Error("The downloaded file is empty.");
+      }
+
+      const blob = new Blob(chunks, {
+        type: "application/vnd.android.package-archive"
+      });
+
+      const signature = new Uint8Array(
+        await blob.slice(0, 4).arrayBuffer()
+      );
+
+      if (
+        signature.length < 4 ||
+        signature[0] !== 0x50 ||
+        signature[1] !== 0x4b
+      ) {
+        throw new Error("The file does not appear to be a valid APK package.");
+      }
+
+      const objectURL = URL.createObjectURL(blob);
+      const saveLink = document.createElement("a");
+
+      saveLink.href = objectURL;
+      saveLink.download = "guruji-mtk.apk";
+      document.body.appendChild(saveLink);
+      saveLink.click();
+      saveLink.remove();
+
+      setProgress(
+        100,
+        "Download Complete!",
+        "Check your browser downloads to access your APK."
+      );
+
+      label.textContent = "DOWNLOAD COMPLETE";
+
+      trackEvent("APKDownloadPrepared", {
+        content_name: "Guruji Mtk APK"
+      });
+
+      setTimeout(() => URL.revokeObjectURL(objectURL), 60000);
+
+    } catch (error) {
+      console.warn("Live APK download unavailable:", error);
+
+      trackEvent("APKDownloadFallback", {
+        content_name: "Guruji Mtk APK"
+      });
+
+      directDownload(
+        "Live progress is unavailable. Your browser will handle the APK download."
+      );
+
+    } finally {
+      setBusy(false);
+    }
   }
 
-  return false;
-}
+  button.addEventListener("click", event => {
+    event.preventDefault();
 
-/* STAR ANIMATION */
+    if (busy) return;
 
-const canvas = document.getElementById("starCanvas");
-const ctx = canvas.getContext("2d");
-
-let w,h,stars=[];
-
-function resize(){
-
-  const dpr = Math.min(window.devicePixelRatio || 1,2);
-
-  w = window.innerWidth;
-  h = window.innerHeight;
-
-  canvas.width = w*dpr;
-  canvas.height = h*dpr;
-
-  canvas.style.width = w+"px";
-  canvas.style.height = h+"px";
-
-  ctx.setTransform(dpr,0,0,dpr,0,0);
-
-}
-
-resize();
-window.addEventListener("resize",resize);
-
-for(let i=0;i<120;i++){
-
-  stars.push({
-    x:Math.random()*window.innerWidth,
-    y:Math.random()*window.innerHeight,
-    r:Math.random()*1.5,
-    s:Math.random()*.8+.2
+    startDownload();
   });
 
-}
+  /* Animated star background */
+  const canvas = document.getElementById("starCanvas");
+  const ctx = canvas.getContext("2d");
 
-(function animate(){
+  let width = 0;
+  let height = 0;
+  let stars = [];
+  let animationFrame = 0;
 
-  ctx.clearRect(0,0,w,h);
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
 
-  ctx.fillStyle="rgba(255,255,255,.8)";
+  function resizeCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-  stars.forEach(star=>{
+    width = window.innerWidth;
+    height = window.innerHeight;
 
-    ctx.beginPath();
-    ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
-    ctx.fill();
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
 
-    star.y+=star.s;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    if(star.y>h){
-      star.y=0;
-      star.x=Math.random()*w;
+    const count = Math.min(
+      100,
+      Math.floor(width * height / 9500)
+    );
+
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 1.3 + .25,
+      speed: Math.random() * .35 + .08,
+      alpha: Math.random() * .55 + .2
+    }));
+  }
+
+  function animateStars() {
+    cancelAnimationFrame(animationFrame);
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (const star of stars) {
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(190,225,255,${star.alpha})`;
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (!reduceMotion.matches) {
+          star.y += star.speed;
+
+          if (star.y > height) {
+            star.y = 0;
+            star.x = Math.random() * width;
+          }
+        }
+      }
+
+      if (!reduceMotion.matches) {
+        animationFrame = requestAnimationFrame(draw);
+      }
     }
 
-  });
+    draw();
+  }
 
-  requestAnimationFrame(animate);
+  resizeCanvas();
+  animateStars();
 
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    animateStars();
+  }, { passive: true });
+
+  if (reduceMotion.addEventListener) {
+    reduceMotion.addEventListener("change", animateStars);
+  }
 })();
-
 </script>
 
 </body>
