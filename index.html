@@ -1,32 +1,58 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#04061a">
+
 <title>GURUJI MTK – Online Mtk App</title>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2064042457635063');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2064042457635063&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<meta name="description" content="GURUJI MTK Online Platform">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- META PIXEL CODE -->
+<script>
+!function(f,b,e,v,n,t,s)
+{
+  if(f.fbq)return;
+  n=f.fbq=function(){
+    n.callMethod ?
+    n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+  };
+  if(!f._fbq)f._fbq=n;
+  n.push=n;
+  n.loaded=true;
+  n.version='2.0';
+  n.queue=[];
+  t=b.createElement(e);
+  t.async=true;
+  t.src=v;
+  s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s);
+}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init','2064042457635063');
+fbq('track','PageView');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2064042457635063&ev=PageView&noscript=1"
+/>
+</noscript>
+<!-- END META PIXEL CODE -->
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
 body{
   min-height:100vh;
@@ -36,13 +62,17 @@ body{
   align-items:center;
   padding:20px;
   color:#fff;
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:auto;
 }
 
 #starCanvas{
   position:fixed;
   inset:0;
+  width:100%;
+  height:100%;
   z-index:0;
+  pointer-events:none;
 }
 
 .card{
@@ -50,11 +80,24 @@ body{
   z-index:2;
   width:100%;
   max-width:420px;
-  background:linear-gradient(180deg,#121a4d,#0a1038);
+  background:linear-gradient(180deg,#18245d,#090e32);
+  border:1px solid rgba(255,255,255,.12);
   border-radius:26px;
   padding:26px 22px 30px;
   box-shadow:0 25px 60px rgba(0,0,0,.6);
-  backdrop-filter:blur(6px);
+  backdrop-filter:blur(10px);
+  animation:cardEntry .8s ease;
+}
+
+@keyframes cardEntry{
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.95);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
 }
 
 .header{
@@ -67,140 +110,201 @@ body{
 .logo{
   width:60px;
   height:60px;
+  flex-shrink:0;
   border-radius:16px;
   background:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
   box-shadow:0 0 30px rgba(255,215,0,.7);
+  animation:logoGlow 2s infinite alternate;
 }
 
-.logo img{width:48px;}
+.logo img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+}
+
+@keyframes logoGlow{
+  from{box-shadow:0 0 10px #ffd700;}
+  to{box-shadow:0 0 30px #00d4ff;}
+}
 
 .header h1{
   font-size:22px;
   font-weight:800;
+  letter-spacing:1px;
+  background:linear-gradient(90deg,#fff,#ffd84d);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .header span{
   display:block;
-  font-size:12px;
+  font-size:10px;
   font-weight:600;
   color:#ffd84d;
+  line-height:1.5;
 }
 
 .tagline{
-  font-size:15px;
+  font-size:14px;
   font-weight:600;
-  margin:14px 0 18px;
+  text-align:center;
+  margin:18px 0;
+  color:#fff;
 }
 
 .features{
   background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
   border-radius:18px;
   padding:18px;
 }
 
 .features li{
   list-style:none;
-  margin-bottom:10px;
-  font-size:14px;
+  margin-bottom:11px;
+  font-size:13px;
   display:flex;
-  gap:8px;
+  gap:9px;
+  align-items:center;
+}
+
+.features li:last-child{
+  margin-bottom:0;
 }
 
 .features li::before{
   content:"✔";
   color:#00ff9d;
+  font-weight:800;
 }
 
 .stats{
   display:flex;
-  gap:12px;
+  gap:9px;
   margin:20px 0;
 }
 
 .stat{
   flex:1;
-  background:rgba(255,255,255,.05);
+  min-width:0;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.07);
   border-radius:16px;
-  padding:14px;
+  padding:13px 5px;
   text-align:center;
 }
 
 .stat h2{
-  font-size:18px;
+  font-size:17px;
   font-weight:800;
+  color:#ffd84d;
 }
 
 .stat p{
-  font-size:12px;
-  opacity:.8;
+  font-size:10px;
+  opacity:.85;
 }
 
 .download a{
   display:block;
   text-align:center;
-  padding:18px;
+  padding:17px 10px;
   background:linear-gradient(90deg,#00ff9d,#00d4ff);
   color:#002018;
-  font-size:18px;
+  font-size:17px;
   font-weight:800;
   border-radius:40px;
   text-decoration:none;
-  box-shadow:0 0 40px rgba(0,255,200,.9);
+  box-shadow:0 0 30px rgba(0,255,200,.5);
   transition:.3s;
+  animation:downloadPulse 2s infinite;
 }
 
 .download a:hover{
-  transform:scale(1.05);
+  transform:scale(1.04);
+}
+
+.download a:active{
+  transform:scale(.97);
+}
+
+@keyframes downloadPulse{
+  0%,100%{box-shadow:0 0 15px rgba(0,255,200,.4);}
+  50%{box-shadow:0 0 35px rgba(0,255,200,.9);}
 }
 
 .footer{
   text-align:center;
   font-size:12px;
   opacity:.8;
-  margin-top:14px;
+  margin-top:18px;
   cursor:pointer;
   text-decoration:underline;
 }
 
 .ads-agency{
   text-align:center;
-  margin-top:6px;
+  margin-top:8px;
   font-size:11px;
-  color:rgba(255,255,255,0.65);
-  letter-spacing:0.5px;
+  color:rgba(255,255,255,.65);
 }
 
-/* 🔐 PRIVACY POPUP */
+/* PRIVACY POPUP */
+
 #policy{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.7);
+  background:rgba(0,0,0,.8);
   z-index:10;
   justify-content:center;
   align-items:center;
+  padding:18px;
 }
 
 .policy-box{
   background:#0b113d;
+  border:1px solid rgba(255,255,255,.12);
+  width:100%;
   max-width:420px;
   padding:22px;
   border-radius:18px;
   font-size:13px;
-  line-height:1.6;
+  line-height:1.7;
+  max-height:85vh;
+  overflow-y:auto;
+}
+
+.policy-box h3{
+  color:#ffd84d;
+  margin-bottom:12px;
 }
 
 .policy-box button{
-  margin-top:12px;
-  padding:10px 18px;
+  margin-top:15px;
+  padding:10px 22px;
   border:none;
   border-radius:10px;
   background:#00ff9d;
+  color:#002018;
   font-weight:700;
   cursor:pointer;
+}
+
+@media(max-width:380px){
+  .card{
+    padding:22px 16px;
+  }
+  .header h1{
+    font-size:19px;
+  }
+  .stat h2{
+    font-size:15px;
+  }
 }
 </style>
 </head>
@@ -212,17 +316,20 @@ body{
 <div class="card">
 
   <div class="header">
+
     <div class="logo">
       <img src="logo.jpeg" alt="GURUJI MTK Logo">
     </div>
+
     <div>
       <h1>GURUJI MTK</h1>
       <span>ENTERTAINMENT & EDUCATIONAL PLATFORM</span>
     </div>
+
   </div>
 
   <div class="tagline">
-    तेज़ भुगतान • सुरक्षित सिस्टम • रियल-टाइम अपडेट
+    तेज़ अपडेट • आसान सिस्टम • रियल-टाइम जानकारी
   </div>
 
   <ul class="features">
@@ -234,97 +341,177 @@ body{
   </ul>
 
   <div class="stats">
+
     <div class="stat">
       <h2>100K+</h2>
       <p>Active Users</p>
     </div>
+
     <div class="stat">
       <h2>24×7</h2>
       <p>Support</p>
     </div>
+
     <div class="stat">
       <h2>4.9★</h2>
       <p>User Rating</p>
     </div>
+
   </div>
-  
-<div class="download">
-  <a href="https://guruji.space/guruji.apk"
-     download="guruji.apk"
-     onclick="if(typeof fbq === 'function') {
-       fbq('track', 'Lead', {
-         content_name: 'Guruji Mtk APK'
-       });
-     }">
-    ↓ DOWNLOAD NOW ↓
-  </a>
-</div>
+
+  <!-- APK DOWNLOAD BUTTON -->
+
+  <div class="download">
+    <a href="https://guruji.space/guruji.apk"
+       onclick="return trackApkDownload(event,this)">
+      ↓ DOWNLOAD NOW ↓
+    </a>
+  </div>
 
   <div class="footer" onclick="openPolicy()">
     Privacy Policy & Terms
   </div>
 
+  <div class="ads-agency">
+    GURUJI MTK Official Platform
+  </div>
+
 </div>
 
-<!-- 🔐 PRIVACY POLICY POPUP -->
+<!-- PRIVACY POLICY POPUP -->
+
 <div id="policy" onclick="closePolicy()">
+
   <div class="policy-box" onclick="event.stopPropagation()">
-    <h3>🔐 Privacy Policy</h3>
+
+    <h3>🔐 Privacy Policy & Terms</h3>
+
     <p>
-      GURUJI MTK ek online entertainment & educational information platform hai.  
-      Yahan diya gaya content sirf educational aur informational purpose ke liye hai.  
-      Hum kisi bhi real money gambling ya betting activity ko promote nahi karte.  
-      Koi bhi earning guarantee nahi di jati.  
-      Users ki privacy humari priority hai.
+      GURUJI MTK provides online entertainment and informational content.
+      All content is provided for informational purposes only.
+      We do not guarantee any earnings or financial returns.
+      Users should review all applicable laws before using the platform.
+      We respect user privacy and do not ask users to share unnecessary
+      personal information.
     </p>
+
     <button onclick="closePolicy()">Close</button>
+
   </div>
+
 </div>
 
 <script>
+
+/* PRIVACY POPUP */
+
 function openPolicy(){
   document.getElementById("policy").style.display="flex";
 }
+
 function closePolicy(){
   document.getElementById("policy").style.display="none";
 }
 
-/* ⭐ STAR ANIMATION */
+/* META PIXEL APK DOWNLOAD TRACKING */
+
+function trackApkDownload(event, link){
+
+  event.preventDefault();
+
+  const apkUrl = link.href;
+  let downloadStarted = false;
+
+  function startDownload(){
+    if(downloadStarted) return;
+
+    downloadStarted = true;
+    window.location.href = apkUrl;
+  }
+
+  if(typeof window.fbq === 'function'){
+
+    fbq('track','Lead',{
+      content_name:'Guruji Mtk APK',
+      content_category:'APK Download'
+    });
+
+    // Give the Pixel request a short time before navigation
+    setTimeout(startDownload,800);
+
+  }else{
+
+    // Download still works if Pixel is blocked
+    startDownload();
+
+  }
+
+  return false;
+}
+
+/* STAR ANIMATION */
+
 const canvas = document.getElementById("starCanvas");
 const ctx = canvas.getContext("2d");
+
 let w,h,stars=[];
 
 function resize(){
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
+
+  const dpr = Math.min(window.devicePixelRatio || 1,2);
+
+  w = window.innerWidth;
+  h = window.innerHeight;
+
+  canvas.width = w*dpr;
+  canvas.height = h*dpr;
+
+  canvas.style.width = w+"px";
+  canvas.style.height = h+"px";
+
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+
 }
+
 resize();
-window.onresize = resize;
+window.addEventListener("resize",resize);
 
 for(let i=0;i<120;i++){
+
   stars.push({
-    x:Math.random()*w,
-    y:Math.random()*h,
+    x:Math.random()*window.innerWidth,
+    y:Math.random()*window.innerHeight,
     r:Math.random()*1.5,
-    s:Math.random()*0.8+0.2
+    s:Math.random()*.8+.2
   });
+
 }
 
 (function animate(){
+
   ctx.clearRect(0,0,w,h);
-  ctx.fillStyle="rgba(255,255,255,0.8)";
+
+  ctx.fillStyle="rgba(255,255,255,.8)";
+
   stars.forEach(star=>{
+
     ctx.beginPath();
     ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
     ctx.fill();
+
     star.y+=star.s;
+
     if(star.y>h){
       star.y=0;
       star.x=Math.random()*w;
     }
+
   });
+
   requestAnimationFrame(animate);
+
 })();
+
 </script>
 
 </body>
