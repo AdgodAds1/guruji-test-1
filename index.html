@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GURUJI MTK – Online Mtk App</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2064042457635063');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2064042457635063&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  min-height:100vh;
+  background:#04061a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  color:#fff;
+  overflow:hidden;
+}
+
+#starCanvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
+
+.card{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:420px;
+  background:linear-gradient(180deg,#121a4d,#0a1038);
+  border-radius:26px;
+  padding:26px 22px 30px;
+  box-shadow:0 25px 60px rgba(0,0,0,.6);
+  backdrop-filter:blur(6px);
+}
+
+.header{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.logo{
+  width:60px;
+  height:60px;
+  border-radius:16px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 30px rgba(255,215,0,.7);
+}
+
+.logo img{width:48px;}
+
+.header h1{
+  font-size:22px;
+  font-weight:800;
+}
+
+.header span{
+  display:block;
+  font-size:12px;
+  font-weight:600;
+  color:#ffd84d;
+}
+
+.tagline{
+  font-size:15px;
+  font-weight:600;
+  margin:14px 0 18px;
+}
+
+.features{
+  background:rgba(255,255,255,.06);
+  border-radius:18px;
+  padding:18px;
+}
+
+.features li{
+  list-style:none;
+  margin-bottom:10px;
+  font-size:14px;
+  display:flex;
+  gap:8px;
+}
+
+.features li::before{
+  content:"✔";
+  color:#00ff9d;
+}
+
+.stats{
+  display:flex;
+  gap:12px;
+  margin:20px 0;
+}
+
+.stat{
+  flex:1;
+  background:rgba(255,255,255,.05);
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+}
+
+.stat h2{
+  font-size:18px;
+  font-weight:800;
+}
+
+.stat p{
+  font-size:12px;
+  opacity:.8;
+}
+
+.download a{
+  display:block;
+  text-align:center;
+  padding:18px;
+  background:linear-gradient(90deg,#00ff9d,#00d4ff);
+  color:#002018;
+  font-size:18px;
+  font-weight:800;
+  border-radius:40px;
+  text-decoration:none;
+  box-shadow:0 0 40px rgba(0,255,200,.9);
+  transition:.3s;
+}
+
+.download a:hover{
+  transform:scale(1.05);
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  opacity:.8;
+  margin-top:14px;
+  cursor:pointer;
+  text-decoration:underline;
+}
+
+.ads-agency{
+  text-align:center;
+  margin-top:6px;
+  font-size:11px;
+  color:rgba(255,255,255,0.65);
+  letter-spacing:0.5px;
+}
+
+/* 🔐 PRIVACY POPUP */
+#policy{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  z-index:10;
+  justify-content:center;
+  align-items:center;
+}
+
+.policy-box{
+  background:#0b113d;
+  max-width:420px;
+  padding:22px;
+  border-radius:18px;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.policy-box button{
+  margin-top:12px;
+  padding:10px 18px;
+  border:none;
+  border-radius:10px;
+  background:#00ff9d;
+  font-weight:700;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="starCanvas"></canvas>
+
+<div class="card">
+
+  <div class="header">
+    <div class="logo">
+      <img src="logo.jpeg" alt="GURUJI MTK Logo">
+    </div>
+    <div>
+      <h1>GURUJI MTK</h1>
+      <span>ENTERTAINMENT & EDUCATIONAL PLATFORM</span>
+    </div>
+  </div>
+
+  <div class="tagline">
+    तेज़ भुगतान • सुरक्षित सिस्टम • रियल-टाइम अपडेट
+  </div>
+
+  <ul class="features">
+    <li>24×7 System Access</li>
+    <li>Fast Result Information</li>
+    <li>User Friendly Interface</li>
+    <li>Minimum Deposit ₹50</li>
+    <li>Minimum Withdrawal ₹300</li>
+  </ul>
+
+  <div class="stats">
+    <div class="stat">
+      <h2>100K+</h2>
+      <p>Active Users</p>
+    </div>
+    <div class="stat">
+      <h2>24×7</h2>
+      <p>Support</p>
+    </div>
+    <div class="stat">
+      <h2>4.9★</h2>
+      <p>User Rating</p>
+    </div>
+  </div>
+  
+<div class="download">
+  <a href="https://guruji.space/guruji.apk"
+     download="guruji.apk"
+     onclick="if(typeof fbq === 'function') {
+       fbq('track', 'Lead', {
+         content_name: 'Guruji Mtk APK'
+       });
+     }">
+    ↓ DOWNLOAD NOW ↓
+  </a>
+</div>
+
+  <div class="footer" onclick="openPolicy()">
+    Privacy Policy & Terms
+  </div>
+
+</div>
+
+<!-- 🔐 PRIVACY POLICY POPUP -->
+<div id="policy" onclick="closePolicy()">
+  <div class="policy-box" onclick="event.stopPropagation()">
+    <h3>🔐 Privacy Policy</h3>
+    <p>
+      GURUJI MTK ek online entertainment & educational information platform hai.  
+      Yahan diya gaya content sirf educational aur informational purpose ke liye hai.  
+      Hum kisi bhi real money gambling ya betting activity ko promote nahi karte.  
+      Koi bhi earning guarantee nahi di jati.  
+      Users ki privacy humari priority hai.
+    </p>
+    <button onclick="closePolicy()">Close</button>
+  </div>
+</div>
+
+<script>
+function openPolicy(){
+  document.getElementById("policy").style.display="flex";
+}
+function closePolicy(){
+  document.getElementById("policy").style.display="none";
+}
+
+/* ⭐ STAR ANIMATION */
+const canvas = document.getElementById("starCanvas");
+const ctx = canvas.getContext("2d");
+let w,h,stars=[];
+
+function resize(){
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+resize();
+window.onresize = resize;
+
+for(let i=0;i<120;i++){
+  stars.push({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    r:Math.random()*1.5,
+    s:Math.random()*0.8+0.2
+  });
+}
+
+(function animate(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle="rgba(255,255,255,0.8)";
+  stars.forEach(star=>{
+    ctx.beginPath();
+    ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
+    ctx.fill();
+    star.y+=star.s;
+    if(star.y>h){
+      star.y=0;
+      star.x=Math.random()*w;
+    }
+  });
+  requestAnimationFrame(animate);
+})();
+</script>
+
+</body>
+</html>
